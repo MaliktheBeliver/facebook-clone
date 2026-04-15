@@ -91,6 +91,15 @@
   color: var(--fb-text-primary);
 }
 
+.iconBtn:hover {
+  background-color: #d8dadf;
+}
+
+.iconBtnActive {
+  background-color: var(--fb-blue) !important;
+  color: var(--fb-white) !important;
+}
+
 .profilePic {
   border-radius: 50%;
   width: 40px;

@@ -12,6 +12,9 @@ import Groups from "../components/Groups";
 import Gaming from "../components/Gaming";
 import Profile from "../components/Profile";
 import Friends from "../components/Friends";
+import MenuPage from "../components/MenuPage";
+import Messages from "../components/Messages";
+import Notifications from "../components/Notifications";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("home");
@@ -34,9 +37,17 @@ export default function Home() {
       case "gaming":
         return <Gaming />;
       case "profile":
-        return <Profile userImage={userImage} dummyPostImage={dummyPostImage} />;
+        return (
+          <Profile userImage={userImage} dummyPostImage={dummyPostImage} />
+        );
       case "friends":
         return <Friends userImage={userImage} />;
+      case "menu":
+        return <MenuPage />;
+      case "messages":
+        return <Messages userImage={userImage} />;
+      case "notifications":
+        return <Notifications />;
       default:
         return <Feed userImage={userImage} dummyPostImage={dummyPostImage} />;
     }
@@ -45,12 +56,20 @@ export default function Home() {
   return (
     <div className={styles.container}>
       {/* Header */}
-      <Header userImage={userImage} activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Header
+        userImage={userImage}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
 
       {/* Main Content */}
       <main className={styles.main}>
         {/* Left Sidebar */}
-        <LeftSidebar userImage={userImage} activeTab={activeTab} setActiveTab={setActiveTab} />
+        <LeftSidebar
+          userImage={userImage}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
 
         {/* Dynamic Center Content */}
         {renderContent()}

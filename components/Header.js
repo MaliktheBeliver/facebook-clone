@@ -70,13 +70,22 @@ export default function Header({ userImage, activeTab, setActiveTab }) {
       </div>
 
       <div className={styles.headerRight}>
-        <div className={styles.iconBtn}>
+        <div
+          className={`${styles.iconBtn} ${activeTab === "menu" ? styles.iconBtnActive : ""}`}
+          onClick={() => setActiveTab("menu")}
+        >
           <Menu size={20} />
         </div>
-        <div className={styles.iconBtn}>
+        <div
+          className={`${styles.iconBtn} ${activeTab === "messages" ? styles.iconBtnActive : ""}`}
+          onClick={() => setActiveTab("messages")}
+        >
           <MessageCircle size={20} />
         </div>
-        <div className={styles.iconBtn}>
+        <div
+          className={`${styles.iconBtn} ${activeTab === "notifications" ? styles.iconBtnActive : ""}`}
+          onClick={() => setActiveTab("notifications")}
+        >
           <Bell size={20} />
         </div>
         <Image
@@ -85,6 +94,7 @@ export default function Header({ userImage, activeTab, setActiveTab }) {
           width={40}
           height={40}
           className={styles.profilePic}
+          onClick={() => setActiveTab("profile")}
         />
       </div>
     </header>
