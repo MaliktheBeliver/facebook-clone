@@ -1,0 +1,259 @@
+.feed {
+  flex: 1;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 auto;
+}
+
+.stories {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  /* Hide scrollbar for cleaner look */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.stories::-webkit-scrollbar {
+  display: none;
+}
+
+.story {
+  width: 112px;
+  min-width: 112px;
+  height: 200px;
+  border-radius: 12px;
+  background-color: var(--fb-white);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.storyImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.storyUser {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border: 4px solid var(--fb-blue);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.storyName {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Create Post */
+.createPost {
+  background-color: var(--fb-white);
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.createPostTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--fb-border);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.createPostInput {
+  flex: 1;
+  background-color: var(--fb-bg);
+  border-radius: 50px;
+  padding: 10px 16px;
+  color: var(--fb-text-primary);
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.createPostInput::placeholder {
+  color: var(--fb-text-secondary);
+}
+
+.createPostInput:hover {
+  background-color: var(--fb-hover);
+}
+
+.postActionActive {
+  color: var(--fb-blue);
+}
+
+.createPostBottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.createPostAction {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  flex: 1;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--fb-text-secondary);
+}
+
+.createPostAction:hover {
+  background-color: var(--fb-hover);
+}
+
+/* Post */
+.post {
+  background-color: var(--fb-white);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+.postUser {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.postUserInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.postUserName {
+  font-weight: 600;
+}
+
+.postTime {
+  font-size: 13px;
+  color: var(--fb-text-secondary);
+}
+
+.postContent {
+  padding: 4px 16px 16px;
+}
+
+.postImage {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.postStats {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--fb-border);
+  color: var(--fb-text-secondary);
+  font-size: 15px;
+}
+
+.postActions {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 16px;
+}
+
+.postAction {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1;
+  justify-content: center;
+  color: var(--fb-text-secondary);
+  font-weight: 600;
+}
+
+.postAction:hover {
+  background-color: var(--fb-hover);
+}
+
+.profilePic {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.iconBtn {
+  background-color: var(--fb-hover);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--fb-text-primary);
+}
+
+/* Responsive Design */
+
+/* Small Tablets & Mobile */
+@media (max-width: 899px) {
+  .feed {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .feed {
+    gap: 12px;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 8px; /* Add a little padding to the sides */
+  }
+
+  .createPost,
+  .post {
+    border-radius: 8px; /* Restore border radius so it doesn't look completely flat */
+  }
+
+  .stories {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  /* Hide text in post actions to save space */
+  .createPostAction span,
+  .postAction span {
+    display: none;
+  }
+}

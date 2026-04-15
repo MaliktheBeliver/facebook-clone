@@ -1,0 +1,55 @@
+.sidebar {
+  width: 360px;
+  padding: 0 8px;
+  position: sticky;
+  top: 80px;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--fb-text-primary);
+}
+
+.sidebarItem:hover {
+  background-color: var(--fb-hover);
+}
+
+.contactsTitle {
+  font-weight: 600;
+  color: var(--fb-text-secondary);
+  margin-bottom: 8px;
+  padding: 0 8px;
+}
+
+.profilePic {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+
+/* Large Tablets & Small Desktops */
+@media (max-width: 1199px) {
+  .sidebar {
+    width: 280px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  /* Hide right sidebar */
+  .sidebar {
+    display: none;
+  }
+}

@@ -1,0 +1,180 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--fb-white);
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 25%;
+}
+
+.logo {
+  color: var(--fb-blue);
+  width: 40px;
+  height: 40px;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  background-color: var(--fb-bg);
+  border-radius: 50px;
+  padding: 8px 12px;
+  gap: 8px;
+  color: var(--fb-text-secondary);
+}
+
+.searchInput {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 15px;
+}
+
+.headerMiddle {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  gap: 8px;
+  height: 100%;
+}
+
+.navIcon {
+  width: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--fb-text-secondary);
+  border-radius: 8px;
+  height: 90%;
+  margin-top: 2px;
+}
+
+.navIcon:hover {
+  background-color: var(--fb-hover);
+}
+
+.navIconActive {
+  color: var(--fb-blue);
+  border-bottom: 3px solid var(--fb-blue);
+  border-radius: 0;
+}
+
+.headerRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  width: 25%;
+}
+
+.iconBtn {
+  background-color: var(--fb-hover);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--fb-text-primary);
+}
+
+.profilePic {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+
+/* Large Tablets & Small Desktops */
+@media (max-width: 1199px) {
+  .headerLeft,
+  .headerRight {
+    width: 20%;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .headerLeft,
+  .headerRight {
+    width: auto;
+  }
+}
+
+/* Small Tablets & Mobile */
+@media (max-width: 899px) {
+  .searchInput {
+    display: none;
+  }
+  .searchBox {
+    padding: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    background-color: var(--fb-hover);
+    cursor: pointer;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .header {
+    padding: 4px 8px;
+    height: 64px;
+  }
+
+  /* Bottom Navigation */
+  .headerMiddle {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(64px + env(safe-area-inset-bottom));
+    background-color: var(--fb-white);
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    padding: 0 8px env(safe-area-inset-bottom) 8px;
+    justify-content: space-around;
+  }
+
+  .navIcon {
+    width: auto;
+    flex: 1;
+    border-radius: 0;
+    height: 100%;
+    margin-top: 0;
+    border-top: 3px solid transparent; /* Prevent layout jump */
+  }
+
+  .navIconActive {
+    border-bottom: none;
+    border-top: 3px solid var(--fb-blue);
+  }
+
+  .headerRight {
+    gap: 4px;
+  }
+
+  /* Hide extra header right icons on small screens */
+  .iconBtn:nth-child(1),
+  .iconBtn:nth-child(2) {
+    display: none;
+  }
+}

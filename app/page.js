@@ -1,65 +1,62 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
 import styles from "./page.module.css";
+import Header from "../components/Header";
+import LeftSidebar from "../components/LeftSidebar";
+import Feed from "../components/Feed";
+import RightSidebar from "../components/RightSidebar";
+import Video from "../components/Video";
+import Marketplace from "../components/Marketplace";
+import Groups from "../components/Groups";
+import Gaming from "../components/Gaming";
+import Profile from "../components/Profile";
+import Friends from "../components/Friends";
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState("home");
+
+  const userImage =
+    "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&h=150&fit=crop";
+  const dummyPostImage =
+    "https://images.unsplash.com/photo-1707343843437-caacff5cfa74?w=800&q=80";
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "home":
+        return <Feed userImage={userImage} dummyPostImage={dummyPostImage} />;
+      case "video":
+        return <Video />;
+      case "marketplace":
+        return <Marketplace />;
+      case "groups":
+        return <Groups />;
+      case "gaming":
+        return <Gaming />;
+      case "profile":
+        return <Profile userImage={userImage} dummyPostImage={dummyPostImage} />;
+      case "friends":
+        return <Friends userImage={userImage} />;
+      default:
+        return <Feed userImage={userImage} dummyPostImage={dummyPostImage} />;
+    }
+  };
+
   return (
-    <div className={styles.page}>
+    <div className={styles.container}>
+      {/* Header */}
+      <Header userImage={userImage} activeTab={activeTab} setActiveTab={setActiveTab} />
+
+      {/* Main Content */}
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        {/* Left Sidebar */}
+        <LeftSidebar userImage={userImage} activeTab={activeTab} setActiveTab={setActiveTab} />
+
+        {/* Dynamic Center Content */}
+        {renderContent()}
+
+        {/* Right Sidebar */}
+        <RightSidebar userImage={userImage} />
       </main>
     </div>
   );
