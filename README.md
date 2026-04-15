@@ -1,4 +1,4 @@
-# Facebook Clone 📱
+# Facebook-clone 📱
 
 A modern, responsive, and interactive Facebook UI clone built with **Next.js** and **React**. This project is perfect for junior developers looking to understand how to build complex UI layouts, manage state across components, and use CSS Modules in a Next.js App Router environment.
 
