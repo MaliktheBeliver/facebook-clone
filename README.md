@@ -43,7 +43,7 @@ Follow these steps to get the project running on your local machine:
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/facebook-clone.git
+git clone https://github.com/MaliktheBeliver/facebook-clone.git
 cd facebook-clone
 ```
 
